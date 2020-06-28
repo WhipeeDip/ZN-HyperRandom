@@ -48,19 +48,19 @@ http://aok.heavengames.com/cgi-bin/forums/display.cgi?action=ct&f=28,44641,,365
 /* tweak the script to your liking */
 
 /* comment out to prevent weather effects (rain, snow, thunderstorms) when using UserPatch 1.5 */
-	#define ALLOW_UP_WEATHER
+	/* #define ALLOW_UP_WEATHER */
 /* comment out to prevent UserPatch 1.5 terrain shading - which can look bad on streams or recordings */
 /*	#define ALLOW_UP_TERRAIN_SHADING	*/
 
 /* modify how often you want to have a nomad start (no town center) */
 start_random
-	percent_chance 10	#define USE_NOMAD_SETUP
+	percent_chance 0	#define USE_NOMAD_SETUP
 end_random
 
 /* If the "team together" box is ticked, there is a chance of being grouped very closely to team members in one part of the map */
 if FIXED_POSITIONS
 	start_random
-		percent_chance 5	#define USE_TEAM_GROUPING
+		percent_chance 100	#define USE_TEAM_GROUPING
 	end_random
 endif
 
@@ -74,9 +74,9 @@ endif
 /* islands, rivers, coastal, continental, yucatan, classic nomad, are examples of water-based map styles */
 /* baltic, mediteranean, oasis, cross, four lakes, acropolis are examples of map styles with lakes */
 /* arabia, gold rush, black forest are examples of maps that have small ponds */
-/*	#define NO_WATER_BASED_MAPS	*/
+	#define NO_WATER_BASED_MAPS
 /*	#define NO_LAKES	*/
-	#define NO_SMALL_PONDS
+	/* #define NO_SMALL_PONDS */
 
 /* comment this out If you do not want random zone assignment to be an option for player lands. ie. you might share an island with an enemy If you allow this */
 /* also determines If unequal corners are allowed; comment out to ensure there are either 4 or 0 corner lands */
@@ -112,7 +112,7 @@ even spacing will give as many as fit on the map, but with a large spacing so th
 
 /* additionally, and independent of what you choose above, you can choose to allow the possibility that players start with a relic at their base */
 /* this will always occur on island and michi maps, but with this setting you can choose to allow it to happen at random on any map */
-	#define ALLOW_PERSONAL_RELIC
+	/* #define ALLOW_PERSONAL_RELIC */
 
 /* prevent custom wall types that AIs may have difficulty with  */
 if AI_PLAYERS	#define ONLY_STANDARD_WALL_TYPES
@@ -245,17 +245,17 @@ Wasteland - bonus biome; leaves, dead trees, dead farms, snow blends in DE
 start_random
 	percent_chance 5	#define POLAR_BIOME
 	percent_chance 10	#define TAIGA_BIOME
-	percent_chance 5	#define ALPINE_BIOME
+	percent_chance 10	#define ALPINE_BIOME /* +5 */
 	percent_chance 10	#define HIGHLAND_BIOME
 	percent_chance 10	#define TEMPERATE_BIOME
-	percent_chance 5	#define AUTUMN_TEMPERATE_BIOME
+	percent_chance 10	#define AUTUMN_TEMPERATE_BIOME /* +5 */
 	percent_chance 5	#define AUTUMN_SNOW_BIOME
 	percent_chance 10	#define JUNGLE_BIOME
 	percent_chance 9	#define TROPICAL_BIOME
 	percent_chance 10	#define SAVANNAH_BIOME
-	percent_chance 10	#define DESERT_BIOME
+	percent_chance 5	#define DESERT_BIOME
 	percent_chance 5	#define HIGH_DESERT_BIOME
-	percent_chance 5	#define MANGROVE_SWAMP_BIOME
+	percent_chance 0	#define MANGROVE_SWAMP_BIOME
 	percent_chance 1	#define WASTELAND_BIOME
 end_random
 
