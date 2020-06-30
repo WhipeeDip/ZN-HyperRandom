@@ -2776,19 +2776,19 @@ create_land {
 		else
 			start_random
 				percent_chance 40	#define CENTER_IS_WATER
-				percent_chance 30	#define CENTER_IS_FOREST
+				percent_chance 10	#define CENTER_IS_FOREST
 				percent_chance 10	#define CENTER_IS_SHALLOWS
-				percent_chance 20	#define CENTER_IS_LAND
+				percent_chance 40	#define CENTER_IS_LAND
 			end_random
 		endif
 	elseif FOREST_BASED_MAP
 		if NO_LAKES	#define CENTER_IS_LAND
 		else
 			start_random
-				percent_chance 10	#define CENTER_IS_WATER
+				percent_chance 40	#define CENTER_IS_WATER
 				percent_chance 0	#define CENTER_IS_FOREST
 				percent_chance 10	#define CENTER_IS_SHALLOWS
-				percent_chance 80	#define CENTER_IS_LAND
+				percent_chance 50	#define CENTER_IS_LAND
 			end_random
 		endif
 	elseif WATER_BASED_MAP
@@ -7569,7 +7569,7 @@ if CENTER_IS_LAND
 		endif
 	else
 		start_random
-			percent_chance 50 #define PLACE_CENTER_RESOURCES
+			percent_chance 100 #define PLACE_CENTER_RESOURCES
 		end_random
 	endif
 endif
@@ -8554,7 +8554,7 @@ if CENTER_IS_LAND
 		endif
 	else
 		start_random
-			percent_chance 50	#define PLACE_CENTER_RESOURCES
+			percent_chance 100	#define PLACE_CENTER_RESOURCES
 		end_random
 	endif
 endif
