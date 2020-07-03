@@ -53,9 +53,9 @@ http://aok.heavengames.com/cgi-bin/forums/display.cgi?action=ct&f=28,44641,,365
 /*	#define ALLOW_UP_TERRAIN_SHADING	*/
 
 /* modify how often you want to have a nomad start (no town center) */
-start_random
+/* start_random
 	percent_chance 0	#define USE_NOMAD_SETUP
-end_random
+end_random */
 
 /* If the "team together" box is ticked, there is a chance of being grouped very closely to team members in one part of the map */
 if FIXED_POSITIONS
@@ -75,7 +75,7 @@ endif
 /* baltic, mediteranean, oasis, cross, four lakes, acropolis are examples of map styles with lakes */
 /* arabia, gold rush, black forest are examples of maps that have small ponds */
 	#define NO_WATER_BASED_MAPS
-/*	#define NO_LAKES	*/
+	#define NO_LAKES
 	/* #define NO_SMALL_PONDS */
 
 /* comment this out If you do not want random zone assignment to be an option for player lands. ie. you might share an island with an enemy If you allow this */
