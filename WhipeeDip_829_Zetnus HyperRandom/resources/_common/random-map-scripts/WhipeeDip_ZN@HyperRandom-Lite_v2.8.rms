@@ -127,10 +127,12 @@ endif
 /* the base terrain is either land, water or forest */
 /* ratios can be tweaked */
 if NO_WATER_BASED_MAPS
-	start_random
+	/* start_random TODO:
 		percent_chance 75	#define LAND_BASED_MAP
 		percent_chance 25	#define FOREST_BASED_MAP
-	end_random
+	end_random */
+	/* #define LAND_BASED_MAP */
+	#define FOREST_BASED_MAP
 else
 	start_random
 		percent_chance 40	#define LAND_BASED_MAP		/* arabia, mongolia, baltic, ghost lake, acropolis, land nomad, are examples of land-based maps */
@@ -140,7 +142,7 @@ else
 endif
 if FOREST_BASED_MAP
 	start_random
-		percent_chance 10	#define USE_MICHI_STYLE    /* forest completely separating players - probability is (forest chance)x(michi chance) - currently 2% */  /* effective chance is even lower due interference from center land and zones */
+		percent_chance 0	#define USE_MICHI_STYLE    /* forest completely separating players - probability is (forest chance)x(michi chance) - currently 2% */  /* effective chance is even lower due interference from center land and zones */
 	end_random
 elseif WATER_BASED_MAP
 	start_random
@@ -247,12 +249,12 @@ start_random
 	percent_chance 10	#define TAIGA_BIOME
 	percent_chance 10	#define ALPINE_BIOME /* +5 */
 	percent_chance 10	#define HIGHLAND_BIOME
-	percent_chance 10	#define TEMPERATE_BIOME
-	percent_chance 10	#define AUTUMN_TEMPERATE_BIOME /* +5 */
+	percent_chance 15	#define TEMPERATE_BIOME
+	percent_chance 15	#define AUTUMN_TEMPERATE_BIOME /* +5 */
 	percent_chance 5	#define AUTUMN_SNOW_BIOME
 	percent_chance 10	#define JUNGLE_BIOME
 	percent_chance 9	#define TROPICAL_BIOME
-	percent_chance 10	#define SAVANNAH_BIOME
+	percent_chance 0	#define SAVANNAH_BIOME /* -10 */
 	percent_chance 5	#define DESERT_BIOME
 	percent_chance 5	#define HIGH_DESERT_BIOME
 	percent_chance 0	#define MANGROVE_SWAMP_BIOME
@@ -2767,12 +2769,13 @@ create_player_lands {
 if NO_CENTRAL_LAND
 else
 create_land {
-	if LAND_BASED_MAP
+	if LAND_BASED_MAP /* TODO: */
 		if NO_LAKES
-			start_random
+			/* start_random
 				percent_chance 40	#define CENTER_IS_FOREST
 				percent_chance 60	#define CENTER_IS_LAND
-			end_random
+			end_random */
+			#define CENTER_IS_FOREST
 		else
 			start_random
 				percent_chance 40	#define CENTER_IS_WATER
@@ -5700,8 +5703,8 @@ elseif USE_NOMAD_SETUP
 elseif USE_BATTLE_ROYALE
 else
 	start_random
-		percent_chance 20	#define USE_WALLS
-		percent_chance 80	#define NO_WALLS
+		percent_chance 0	#define USE_WALLS
+		percent_chance 100	#define NO_WALLS
 	end_random
 endif
 /* in the standard start, we limit to versions without excessive HP */
@@ -5942,8 +5945,8 @@ elseif USE_NOMAD_SETUP
 elseif USE_BATTLE_ROYALE
 else
 	start_random
-		percent_chance 20	#define USE_WALLS
-		percent_chance 80	#define NO_WALLS
+		percent_chance 0	#define USE_WALLS
+		percent_chance 100	#define NO_WALLS
 	end_random
 endif
 if USE_WALLS
